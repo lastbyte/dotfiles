@@ -8,6 +8,7 @@ return {
 		local ensure_installed = {
 			"vim",
 			"vimdoc",
+      "java",
 			"rust",
 			"c",
 			"cpp",

@@ -48,7 +48,7 @@ vim.keymap.set("v", "<", "<gv", { desc = "Indent left and reselect" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent right and reselect" })
 
 vim.keymap.set("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
-vim.keymap.set("i", "jk", "<Esc>:w<CR>", { desc = "escape to normal mode" })
+vim.keymap.set({"i", "n", 'v'}, "jk", "<Esc>:w<CR>", { desc = "escape to normal mode" })
 vim.keymap.set("i", "<Esc>", "<Esc>:w<CR>", { desc = "Exit insert mode and save" })
 vim.keymap.set("n", "<leader>pa", function() -- show file path
 	local path = vim.fn.expand("%:p")

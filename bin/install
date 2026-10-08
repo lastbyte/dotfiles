@@ -1,0 +1,28 @@
+#!/bin/bash
+# Symlink dotfiles folders to ~/.config directory
+
+DOTFILES_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+CONFIG_DIR="$HOME/.config"
+
+echo "Symlinking folders from $DOTFILES_DIR to $CONFIG_DIR"
+
+# Ensure config directory exists
+mkdir -p "$CONFIG_DIR"
+
+# Loop through all directories in the dotfiles repo (excluding . and ..)
+for dir in "$DOTFILES_DIR"/*/; do
+    # Get the directory name
+    dir_name=$(basename "$dir")
+    
+    # Skip certain directories we don't want to symlink
+    if [[ "$dir_name" == ".git" ]] || [[ "$dir_name" == "bin" ]] || [[ "$dir_name" == ".github" ]]; then
+        echo "Skipping $dir_name"
+        continue
+    fi
+    
+    # Create symlink in config directory
+    ln -sfn "$dir" "$CONFIG_DIR/$dir_name"
+    echo "Linked $dir_name"
+done
+
+echo "Done!"

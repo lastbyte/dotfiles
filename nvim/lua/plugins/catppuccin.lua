@@ -21,7 +21,7 @@ return {
 			custom_highlights = function(colors)
 				return {
 					-- Remove the solid background entirely
-					CursorLine = { bg = "none", underline = false },
+					CursorLine = { bg = "#2a2b36", underline = false },
 
 					-- Optional: If you use line numbers, clear their active line bg too
 					CursorLineNr = { bg = "none", fg = colors.blue, bold = true },

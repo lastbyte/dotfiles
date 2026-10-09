@@ -59,7 +59,7 @@ vim.opt.conceallevel = 2 -- obsidian requirement
 vim.opt.concealcursor = "" -- do not hide cursorline in markup
 vim.opt.synmaxcol = 300 -- syntax highlighting limit
 vim.opt.fillchars = { eob = " " } -- hide "~" on empty lines
--- vim.o.winblend = 0
+vim.o.winblend = 0
 local undodir = vim.fn.expand("~/.vim/undodir")
 if
 	vim.fn.isdirectory(undodir) == 0 -- create undodir if nonexistent

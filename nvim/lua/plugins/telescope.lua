@@ -38,5 +38,10 @@ return {
 		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "live grep in the cwd" })
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Find all the active buffers" })
 		vim.keymap.set("n", "<leader>tt", ":Telescope<CR>", { desc = "trigger the telescope finder" })
+
+		vim.keymap.set("n", "<leader>gr", builtin.lsp_references, { desc = "Go to references" })
+		vim.keymap.set("n", "<leader>gi", builtin.lsp_implementations, { desc = "Go to implementation" })
+		vim.keymap.set("n", "<leader>gd", builtin.lsp_definitions, { desc = "Go to definitions" })
+		vim.keymap.set("n", "<leader>gD", builtin.lsp_type_definitions, { desc = "Go to type definitions" })
 	end,
 }

@@ -7,10 +7,23 @@ return {
 			"MunifTanjim/nui.nvim",
 			"nvim-tree/nvim-web-devicons",
 		},
+		-- FIXED: Moved opts inside the neo-tree block
+		opts = {
+			window = {
+				mappings = {
+					-- Overwrite 'q' to use native close instead of generic quit
+					["q"] = "close_window",
+				},
+			},
+		},
+		-- FIXED: Moved keys inside the neo-tree block
+		keys = {
+			-- Change the default toggle key from <leader>fe to <leader>e
+			{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Neo-tree" },
+		},
 	},
 	{
 		"Crysthamus/nvim-file-operations",
-		-- branch = "compat" -- if you are on Neovim <= 0.10
 		dependencies = {
 			"nvim-neo-tree/neo-tree.nvim", -- makes sure that this loads after Neo-tree.
 		},
@@ -26,19 +39,12 @@ return {
 				filter_rules = {
 					include_current_win = false,
 					autoselect_one = true,
-					-- filter using buffer options
 					bo = {
-						-- if the file type is one of following, the window will be ignored
 						filetype = { "neo-tree", "neo-tree-popup", "notify" },
-						-- if the buffer type is one of following, the window will be ignored
 						buftype = { "terminal", "quickfix" },
 					},
 				},
 			})
 		end,
-	},
-	keys = {
-		-- 1. Change the default toggle key from <leader>fe to <leader>e
-		{ "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Neo-tree" },
 	},
 }
